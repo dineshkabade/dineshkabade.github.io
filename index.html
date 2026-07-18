@@ -1,293 +1,492 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dinesh Kabade | Technical Project Manager & AI Leader</title>
-    <meta name="description" content="Portfolio of Dinesh Kabade - Technical Project Manager & AI Leader with 12+ years of experience leading cloud, AI, and digital transformation initiatives.">
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- FontAwesome for Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        brand: {
-                            dark: '#0f172a',
-                            accent: '#3b82f6',
-                            muted: '#64748b',
-                            light: '#f8fafc'
-                        }
-                    }
-                }
-            }
+    <title>Dinesh Kabade | Enterprise AI & Digital Transformation Consultant</title>
+    <style>
+        :root {
+            --bg: #050b18;
+            --surface: #0a1428;
+            --surface-card: #0f1f3d;
+            --accent: #3b82f6;
+            --accent-glow: rgba(59, 130, 246, 0.15);
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border: #1e293b;
+            --gradient-primary: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            --radius: 12px;
         }
-    </script>
-</head>
-<body class="bg-brand-light text-brand-dark font-sans antialiased">
 
-    <!-- Navigation -->
-    <nav class="fixed top-0 left-0 w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#" class="text-xl font-bold tracking-tight text-brand-dark">
-                DINESH <span class="text-brand-accent">KABADE</span>
-            </a>
-            <div class="hidden md:flex space-x-8 font-medium text-sm">
-                <a href="#about" class="text-brand-muted hover:text-brand-accent transition">About</a>
-                <a href="#skills" class="text-brand-muted hover:text-brand-accent transition">Skills</a>
-                <a href="#experience" class="text-brand-muted hover:text-brand-accent transition">Experience</a>
-                <a href="#education" class="text-brand-muted hover:text-brand-accent transition">Education</a>
-                <a href="#contact" class="text-brand-muted hover:text-brand-accent transition">Contact</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button id="menu-btn" class="md:hidden text-brand-dark focus:outline-none" aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars text-xl"></i>
-            </button>
-        </div>
-        <!-- Mobile Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t px-4 pt-2 pb-4 space-y-2">
-            <a href="#about" class="block py-2 text-brand-muted hover:text-brand-accent">About</a>
-            <a href="#skills" class="block py-2 text-brand-muted hover:text-brand-accent">Skills</a>
-            <a href="#experience" class="block py-2 text-brand-muted hover:text-brand-accent">Experience</a>
-            <a href="#education" class="block py-2 text-brand-muted hover:text-brand-accent">Education</a>
-            <a href="#contact" class="block py-2 text-brand-muted hover:text-brand-accent">Contact</a>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, system-ui, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            background-image: 
+                radial-gradient(circle at 90% 10%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 10% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 11, 24, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 80px;
+        }
+
+        .logo {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--gradient-primary);
+            color: white;
+            box-shadow: 0 4px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 24px rgba(59, 130, 246, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+
+        .btn-outline:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--text-secondary);
+        }
+
+        /* Hero / Value Prop */
+        header {
+            padding: 180px 0 100px 0;
+            text-align: center;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.2rem;
+            background: rgba(59, 130, 246, 0.1);
+            border: 1px solid rgba(59, 130, 246, 0.25);
+            color: #60a5fa;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            max-width: 900px;
+            margin: 0 auto 1.5rem auto;
+        }
+
+        .hero-title span {
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 750px;
+            margin: 0 auto 3rem auto;
+        }
+
+        .hero-ctas {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+        }
+
+        /* Value Metrics Dashboard */
+        .metrics-bar {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            margin-top: 5rem;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .metric-card h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: #3b82f6;
+            margin-bottom: 0.25rem;
+        }
+
+        .metric-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        /* Pillars of Value Section */
+        section {
+            padding: 100px 0;
+            border-top: 1px solid var(--border);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-label {
+            color: #8b5cf6;
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            font-weight: 800;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            padding: 2.5rem;
+            border-radius: var(--radius);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(139, 92, 246, 0.4);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .service-icon {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .service-icon-img {
+            width: 32px;
+            height: 32px;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            object-fit: contain;
+        }
+
+        .icon-group {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .icon-group img {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+        }
+
+        .service-card h4 {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .service-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .service-bullets {
+            list-style: none;
+            margin-top: auto;
+        }
+
+        .service-bullets li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            color: var(--text-primary);
+        }
+
+        .service-bullets li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #3b82f6;
+            font-weight: bold;
+        }
+
+        /* Form / Consultation Section */
+        .consult-wrapper {
+            background: linear-gradient(135deg, var(--surface) 0%, #0c1b3a 100%);
+            border: 1px solid rgba(59, 130, 246, 0.2);
+            border-radius: var(--radius);
+            padding: 4rem;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .consult-info h3 {
+            font-size: 2.25rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .consult-info p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        .consult-benefits {
+            list-style: none;
+        }
+
+        .consult-benefits li {
+            margin-bottom: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .consult-form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            color: white;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        footer {
+            text-align: center;
+            padding: 4rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 968px) {
+            .metrics-bar { grid-template-columns: repeat(2, 1fr); }
+            .consult-wrapper { grid-template-columns: 1fr; padding: 2.5rem; gap: 2.5rem; }
+            .hero-title { font-size: 2.5rem; }
+        }
+        @media (max-width: 640px) {
+            .metrics-bar { grid-template-columns: 1fr; }
+            .hero-ctas { flex-direction: column; gap: 1rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">DINESH KABADE</div><!--[cite: 1] -->
+            <ul class="nav-links">
+                <li><a href="#solutions">Solutions</a></li>
+                <li><a href="#consultation">Contact</a></li>
+                <li><a href="#consultation" class="btn btn-outline" style="padding: 0.5rem 1rem;">Book Strategy Session</a></li>
+            </ul>
         </div>
     </nav>
 
-    <!-- Hero / About Section -->
-    <section id="about" class="pt-32 pb-20 bg-gradient-to-b from-slate-900 to-brand-dark text-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-12">
-            <div class="flex-1 space-y-6">
-                <div class="inline-flex items-center gap-2 bg-brand-accent/20 border border-brand-accent/30 px-3 py-1 rounded-full text-brand-accent text-sm font-medium">
-                    <i class="fa-solid fa-circle-check text-xs"></i> Certified Scrum Master
+    <header>
+        <div class="container">
+            <div class="hero-badge">AI & Digital Transformation Advisory</div><!--[cite: 1] -->
+            <h1 class="hero-title">Architecting <span>High-Impact AI Automation</span> & Cloud Resilience for Enterprises</h1>
+            <p class="hero-subtitle">
+                Helping fintech and enterprise businesses deploy production-grade Agentic AI solutions, compress critical recovery objectives, and achieve operational scale.<!--[cite: 1] -->
+            </p>
+            <div class="hero-ctas">
+                <a href="#consultation" class="btn btn-primary">Schedule Strategy Consultation</a>
+                <a href="#solutions" class="btn btn-outline">Explore Core Solutions</a>
+            </div>
+
+            <div class="metrics-bar">
+                <div class="metric-card">
+                    <h3>85%</h3><!--[cite: 1] -->
+                    <p>RTO Reduction Achieved</p><!--[cite: 1] -->
                 </div>
-                <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-none">
-                    Technical Project Manager & <br><span class="text-brand-accent">AI Leader</span>
-                </h1>
-                <p class="text-lg text-slate-300 max-w-2xl leading-relaxed">
-                    Over 12 years of core experience leading AI, cloud, and enterprise digital transformation initiatives across fintech and consulting. Proven track record of slashing RTO by 85%, orchestrating complex cross-functional teams of 30+, and delivering top-tier AI-driven solutions.
-                </p>
-                <!-- Quick Metrics Grid -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4">
-                    <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
-                        <div class="text-2xl font-bold text-brand-accent">12+</div>
-                        <div class="text-xs text-slate-400 mt-1">Years Experience</div>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
-                        <div class="text-2xl font-bold text-brand-accent">85%</div>
-                        <div class="text-xs text-slate-400 mt-1">RTO Reduction</div>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
-                        <div class="text-2xl font-bold text-brand-accent">9.5/10</div>
-                        <div class="text-xs text-slate-400 mt-1">CSI Score</div>
-                    </div>
-                    <div class="bg-white/5 border border-white/10 p-4 rounded-xl text-center">
-                        <div class="text-2xl font-bold text-brand-accent">0%</div>
-                        <div class="text-xs text-slate-400 mt-1">Team Attrition</div>
-                    </div>
+                <div class="metric-card">
+                    <h3>9.5/10</h3><!--[cite: 1] -->
+                    <p>Average CSI Delivery Score</p><!--[cite: 1] -->
                 </div>
-                <!-- Action Buttons -->
-                <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="#contact" class="bg-brand-accent hover:bg-blue-600 px-6 py-3 rounded-lg font-medium transition inline-flex items-center gap-2">
-                        <i class="fa-solid fa-envelope"></i> Get In Touch
-                    </a>
-                    <a href="https://linkedin.com/in/dinesh-kabade" target="_blank" rel="noopener" class="bg-white/10 hover:bg-white/20 border border-white/20 px-6 py-3 rounded-lg font-medium transition inline-flex items-center gap-2">
-                        <i class="fa-brands fa-linkedin"></i> LinkedIn Profile
-                    </a>
+                <div class="metric-card">
+                    <h3>15+</h3><!--[cite: 1] -->
+                    <p>Simultaneous Core Initiatives</p><!--[cite: 1] -->
+                </div>
+                <div class="metric-card">
+                    <h3>0%</h3><!--[cite: 1] -->
+                    <p>Engineered Team Attrition</p><!--[cite: 1] -->
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Core Skills Section -->
-    <section id="skills" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold tracking-tight">Technical Expertise</h2>
-            <p class="text-brand-muted mt-2">A strategic balance of technical mastery and modern agile leadership frameworks.</p>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Box 1: PM -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-blue-50 text-brand-accent flex items-center justify-center rounded-xl text-xl mb-4">
-                    <i class="fa-solid fa-list-check"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-3">Project Management</h3>
-                <p class="text-sm text-brand-muted leading-relaxed">Agile, Scrum, Waterfall, TDD, JIRA, Trello, BugZilla, RAID Logs, WBS, Sprint Planning & Retrospectives.</p>
+    <section id="solutions">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-label">Consulting Expertise</span>
+                <h2 class="section-title">Enterprise Business Solutions</h2>
             </div>
-            <!-- Box 2: AI/ML -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-blue-50 text-brand-accent flex items-center justify-center rounded-xl text-xl mb-4">
-                    <i class="fa-solid fa-brain"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-3">AI & Machine Learning</h3>
-                <p class="text-sm text-brand-muted leading-relaxed">Agentic AI, Retrieval-Augmented Generation (RAG), LLMs, Chatbot Development, Deep Learning, OCR, Point Cloud Data.</p>
-            </div>
-            <!-- Box 3: Cloud & DevOps -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-blue-50 text-brand-accent flex items-center justify-center rounded-xl text-xl mb-4">
-                    <i class="fa-solid fa-cloud"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-3">Cloud & DevOps</h3>
-                <p class="text-sm text-brand-muted leading-relaxed">AWS (EC2, S3, CloudFront, Route 53), Azure Repos, CI/CD Pipelines, Docker, Git version control.</p>
-            </div>
-            <!-- Box 4: Architecture & DBs -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-blue-50 text-brand-accent flex items-center justify-center rounded-xl text-xl mb-4">
-                    <i class="fa-solid fa-code"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-3">Languages & Databases</h3>
-                <p class="text-sm text-brand-muted leading-relaxed">Java, Python, Angular, HTML, CSS, JavaScript, Drupal, MySQL, MongoDB, PostgreSQL, PL/SQL.</p>
-            </div>
-            <!-- Box 5: Security -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-blue-50 text-brand-accent flex items-center justify-center rounded-xl text-xl mb-4">
-                    <i class="fa-solid fa-shield-halved"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-3">Security & Compliance</h3>
-                <p class="text-sm text-brand-muted leading-relaxed">VAPT, CSCRF, SEBI Audits, ISO 27001, Cyber Maturity Assessments, BCP-DR Planning & Execution.</p>
-            </div>
-            <!-- Box 6: Automation -->
-            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition">
-                <div class="w-12 h-12 bg-blue-50 text-brand-accent flex items-center justify-center rounded-xl text-xl mb-4">
-                    <i class="fa-solid fa-robot"></i>
-                </div>
-                <h3 class="text-lg font-bold mb-3">Data & Automation</h3>
-                <p class="text-sm text-brand-muted leading-relaxed">RPA, Power Automate, Data Engineering practices, MIS Reporting, Business Intelligence dashboards.</p>
-            </div>
-        </div>
-    </section>
-
-    <hr class="border-slate-200 max-w-6xl mx-auto">
-
-    <!-- Work Experience Section -->
-    <section id="experience" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-3xl mx-auto mb-16">
-            <h2 class="text-3xl font-bold tracking-tight">Professional Timeline</h2>
-            <p class="text-brand-muted mt-2">A record of engineering leadership, high-impact deliveries, and innovation.</p>
-        </div>
-
-        <div class="relative border-l border-slate-200 ml-4 md:ml-6 space-y-12">
-            
-            <!-- Job 1 -->
-            <div class="relative pl-8 group">
-                <div class="absolute -left-3 top-1 w-6 h-6 bg-brand-accent border-4 border-white rounded-full group-hover:scale-110 transition"></div>
-                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <h3 class="text-xl font-bold text-brand-dark">Technical Project Manager</h3>
-                    <span class="bg-blue-50 text-brand-accent text-xs font-semibold px-3 py-1 rounded-full">Jul 2025 - Present</span>
-                </div>
-                <h4 class="text-md font-medium text-brand-accent mb-3">Applied AI Consulting, Pune</h4>
-                <ul class="list-disc list-inside space-y-2 text-sm text-brand-muted">
-                    <li>Led end-to-end delivery of <strong>PEI Voice Bot 2.0</strong> for Perry Ellis International, an Agentic AI solution spanning 4 critical business units, securing a CSI score of 9.5/10.</li>
-                    <li>Engineered a multi-capability support agent utilizing RAG for robust FAQ handling alongside real-time inventory, pricing, and order status integrations.</li>
-                    <li>Designed and deployed <strong>'Elisa'</strong>—a digital Scrum Master for Easentic automating JIRA tracking, meeting management, and automated sprint reporting metrics.</li>
-                </ul>
-            </div>
-
-            <!-- Job 2 -->
-            <div class="relative pl-8 group">
-                <div class="absolute -left-3 top-1 w-6 h-6 bg-brand-accent border-4 border-white rounded-full group-hover:scale-110 transition"></div>
-                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <h3 class="text-xl font-bold text-brand-dark">Technical Project Manager</h3>
-                    <span class="bg-blue-50 text-brand-accent text-xs font-semibold px-3 py-1 rounded-full">Feb 2024 - Jul 2025</span>
-                </div>
-                <h4 class="text-md font-medium text-brand-accent mb-3">Bajaj Finserv Asset Management Ltd, Pune</h4>
-                <ul class="list-disc list-inside space-y-2 text-sm text-brand-muted">
-                    <li>Pioneered key SDLC process controls accelerating software delivery timelines by 20% across a structural grid of 15+ simultaneous strategic initiatives.</li>
-                    <li>Drastically <strong>reduced RTO from 2 hours to 23 minutes</strong> by constructing full-scale automated BCP-DR frameworks over hybrid and multi-cloud applications.</li>
-                    <li>Managed rigorous cloud circular and compliance audits (SEBI, CSCRF, ISO 27001) alongside cross-functional engineering teams of 30+ members.</li>
-                    <li>Maintained 0% attrition rate across the fiscal cycle by managing structured individual growth pathways and training programs.</li>
-                </ul>
-            </div>
-
-            <!-- Job 3 -->
-            <div class="relative pl-8 group">
-                <div class="absolute -left-3 top-1 w-6 h-6 bg-brand-accent border-4 border-white rounded-full group-hover:scale-110 transition"></div>
-                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <h3 class="text-xl font-bold text-brand-dark">Project Lead</h3>
-                    <span class="bg-blue-50 text-brand-accent text-xs font-semibold px-3 py-1 rounded-full">Nov 2020 - Jan 2024</span>
-                </div>
-                <h4 class="text-md font-medium text-brand-accent mb-3">nCircle Tech, Pune</h4>
-                <ul class="list-disc list-inside space-y-2 text-sm text-brand-muted">
-                    <li>Held complete architecture, deployment, and delivery ownership over enterprise AI capabilities.</li>
-                    <li>Successfully built an AI-enabled OCR invoice pipeline that minimized processing turnaround from 7 days to 4 hours.</li>
-                    <li>Maintained a 95% sprint completion metric via Agile tracking tools, RAID logs, and transparent stakeholder interaction models.</li>
-                </ul>
-            </div>
-
-            <!-- Job 4 -->
-            <div class="relative pl-8 group">
-                <div class="absolute -left-3 top-1 w-6 h-6 bg-brand-accent border-4 border-white rounded-full group-hover:scale-110 transition"></div>
-                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <h3 class="text-xl font-bold text-brand-dark">Project Manager</h3>
-                    <span class="bg-blue-50 text-brand-accent text-xs font-semibold px-3 py-1 rounded-full">Sep 2015 - Nov 2020</span>
-                </div>
-                <h4 class="text-md font-medium text-brand-accent mb-3">Arnekt Solutions & IT Innovations India, Pune</h4>
-                <ul class="list-disc list-inside space-y-2 text-sm text-brand-muted">
-                    <li>Managed key overseas relationships with prominent institutes like Honda Research Institute and Nomura Research Institute (Japan).</li>
-                    <li>Oversaw QA strategies spanning front-end, API, and core algorithm layers across multiple parallel software tracks.</li>
-                    <li>Boosted cloud device test coverage by 60% while optimizing localized continuous integration processes.</li>
-                </ul>
-            </div>
-
-            <!-- Job 5 -->
-            <div class="relative pl-8 group">
-                <div class="absolute -left-3 top-1 w-6 h-6 bg-brand-accent border-4 border-white rounded-full group-hover:scale-110 transition"></div>
-                <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
-                    <h3 class="text-xl font-bold text-brand-dark">Corporate Trainer / Software Engineer</h3>
-                    <span class="bg-blue-50 text-brand-accent text-xs font-semibold px-3 py-1 rounded-full">Jun 2013 - Aug 2015</span>
-                </div>
-                <h4 class="text-md font-medium text-brand-accent mb-3">Softbridge Solutions India Pvt Ltd & IFTA, Pune</h4>
-                <ul class="list-disc list-inside space-y-2 text-sm text-brand-muted">
-                    <li>Delivered over 1,400+ operational training hours in modern web engineering, data engineering, and agile project execution styles.</li>
-                    <li>Acted as functional full-stack engineer developing robust Java applications on enterprise application frameworks.</li>
-                </ul>
-            </div>
-
-        </div>
-    </section>
-
-    <!-- Education & Certifications Section -->
-    <section id="education" class="py-20 bg-slate-900 text-white">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+            <div class="services-grid">
                 
-                <!-- Education Grid Box -->
-                <div>
-                    <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
-                        <i class="fa-solid fa-graduation-cap text-brand-accent"></i> Education
-                    </h2>
-                    <div class="space-y-6">
-                        <div class="border-l-2 border-brand-accent/40 pl-4">
-                            <h3 class="text-lg font-semibold">MCS (Master of Computer Science)</h3>
-                            <p class="text-sm text-slate-400">Pune University | 2013</p>
-                        </div>
-                        <div class="border-l-2 border-brand-accent/40 pl-4">
-                            <h3 class="text-lg font-semibold">B.Sc. (Computer Science)</h3>
-                            <p class="text-sm text-slate-400">Pune University | 2011</p>
-                        </div>
-                    </div>
+                <div class="service-card">
+                    <span class="service-icon">🤖</span>
+                    <h4>Agentic AI & Automation Architecture</h4>
+                    <p>Designing autonomous operational agents and custom contextual interfaces that replace heavy human workflows with precise machine output.<!--[cite: 1] --></p>
+                    <ul class="service-bullets">
+                        <li>RAG Systems & Orchestration</li><!--[cite: 1] -->
+                        <li>Intelligent Corporate Bots (e.g., Elisa)</li><!--[cite: 1] -->
+                        <li>OCR Document Processing Models</li><!--[cite: 1] -->
+                    </ul>
                 </div>
 
-                <!-- Certifications Box -->
-                <div>
-                    <h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
-                        <i class="fa-solid fa-certificate text-brand-accent"></i> Certifications
-                    </h2>
-                    <ul class="space-y-4 text-slate-300">
-                        <li class="flex items-start gap-3 text-sm">
-                            <i class="fa-solid fa-award text-brand-accent mt-0.5"></i>
-                            <span><strong>Scrum Fundamental Certification</strong> - Certified Scrum Master</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <i class="fa-solid fa-award text-brand-accent mt-0.5"></i>
-                            <span><strong>Introduction to Data Science</strong> - Cognitive Class</span>
-                        </li>
-                        <li class="flex items-start gap-3 text-sm">
-                            <i class="fa-solid fa-award text-brand-accent mt-0.5"></i>
-                            <span>Bringing Quantitative Visibility & Predictability in Projects</span>
-                        </li>
+                <div class="service-card">
+                    <img class="service-icon-img" src="https://www.google.com/s2/favicons?domain=opsrabbit.io&sz=128" alt="OpsRabbit Favicon">
+                    <h4>IT Operations & MTTR Reduction</h4>
+                    <p>Compressing incident response loops and mitigating critical engineering downtime vectors through target process design and OpsRabbit automation orchestration.</p>
+                    <ul class="service-bullets">
+                        <li>OpsRabbit Integration Strategy</li>
+                        <li>MTTR Diagnostics & Analytics</li>
+                        <li>Automated Incident Workflows</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="icon-group">
+                        <img src="https://www.google.com/s2/favicons?domain=angular.io&sz=64" alt="Web Applications Icon">
+                        <img src="https://www.google.com/s2/favicons?domain=developer.android.com&sz=64" alt="Android Applications Icon">
+                        <img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=64" alt="Automation Workflow Icon">
+                    </div>
+                    <h4>Web, Android & Workflow Automation</h4>
+                    <p>Architecting highly secure, full-stack web platforms, native Android configurations, and cross-functional enterprise processes to maximize software execution speeds.<!--[cite: 1] --></p>
+                    <ul class="service-bullets">
+                        <li>Full-Stack App Architecture<!--[cite: 1] --></li>
+                        <li>Android Mobile Deployment frameworks<!--[cite: 1] --></li>
+                        <li>RPA & Power Automate Systems<!--[cite: 1] --></li>
                     </ul>
                 </div>
 
@@ -295,52 +494,89 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-3xl font-bold tracking-tight">Let's Connect</h2>
-        <p class="text-brand-muted mt-2 max-w-xl mx-auto">Open to executive conversations regarding agile management, AI strategy execution, and digital transformation initiatives.</p>
-        
-        <div class="flex flex-wrap justify-center gap-8 mt-10">
-            <a href="mailto:kabadedr2010@gmail.com" class="flex items-center gap-3 bg-white px-6 py-4 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition text-brand-dark">
-                <i class="fa-solid fa-envelope text-brand-accent text-xl"></i>
-                <div class="text-left">
-                    <p class="text-xs text-brand-muted">Email Me</p>
-                    <p class="text-sm font-semibold">kabadedr2010@gmail.com</p>
+    <section id="consultation">
+        <div class="container">
+            <div class="consult-wrapper">
+                <div class="consult-info">
+                    <h3>Schedule a Strategic Consultation</h3>
+                    <p>Let's align your current technical operational limits with modern digital infrastructure. Optimize your organization's process design, deploy resilient cognitive AI frameworks, or solidify regulatory compliance roadmaps.<!--[cite: 1] --></p>
+                    <ul class="consult-benefits">
+                        <li>⚡ Define concrete automation targets</li>
+                        <li>🛡️ Identify single points of operational failure</li>
+                        <li>📈 Align engineering outputs to executive goals</li>
+                    </ul>
                 </div>
-            </a>
-            <a href="tel:+919890330733" class="flex items-center gap-3 bg-white px-6 py-4 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition text-brand-dark">
-                <i class="fa-solid fa-phone text-brand-accent text-xl"></i>
-                <div class="text-left">
-                    <p class="text-xs text-brand-muted">Call Me</p>
-                    <p class="text-sm font-semibold">+91 9890330733</p>
+                <div>
+                    <form id="consult-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" name="name" required placeholder="John Doe">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Corporate Email</label>
+                            <input type="email" name="email" required placeholder="john@company.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="focus">Primary Focus Area</label>
+                            <select name="focus">
+                                <option value="ai">Agentic AI & Automation Deployments</option>
+                                <option value="mttr">MTTR & IT Operations Optimization</option>
+                                <option value="workflows">Web, Android, & Workflow Automation Consultation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Current Operational Challenge</label>
+                            <textarea name="message" rows="4" required placeholder="Briefly describe your systems baseline bottleneck..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">Request Strategy Session</button>
+                    </form>
+					
+								<script>
+const form = document.getElementById('consult-form');
+
+form.addEventListener('submit', function(e) {
+    e.preventDefault(); // Prevents the default page redirect
+
+    const webAppUrl = 'https://script.google.com/macros/s/AKfycbzWWwlRZjLm7cs3YUag8_gbKbRcyWqlyf_GXX_EQyLa4A5Ix32A-kHfhQc3OVY_5qXx/exec'; 
+
+    // 1. Gather the form fields
+    const formData = new FormData(form); 
+    
+    // 2. Convert FormData into a standard JavaScript object
+    const formObject = Object.fromEntries(formData.entries());
+
+    // 3. Send the object as a stringified JSON payload
+    fetch(webAppUrl, {
+        method: 'POST',
+        body: JSON.stringify(formObject) 
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Form submitted successfully!');
+            form.reset(); // Clears the form fields
+        } else {
+            console.error('Server Error:', data.error);
+            alert('Submission failed: ' + data.error);
+        }
+    })
+    .catch(error => {
+        console.error('Network Error!', error.message);
+        alert('Something went wrong. Please try again.');
+    });
+});
+</script>
+					
                 </div>
-            </a>
-            <a href="https://linkedin.com/in/dinesh-kabade" target="_blank" rel="noopener" class="flex items-center gap-3 bg-white px-6 py-4 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition text-brand-dark">
-                <i class="fa-brands fa-linkedin text-brand-accent text-xl"></i>
-                <div class="text-left">
-                    <p class="text-xs text-brand-muted">Networking</p>
-                    <p class="text-sm font-semibold">linkedin.com/in/dinesh-kabade</p>
-                </div>
-            </a>
+            </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-white border-t py-8 text-center text-xs text-brand-muted">
-        <p>&copy; 2026 Dinesh Kabade. All Rights Reserved.</p>
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 Dinesh Kabade. Strategic Technology Execution & Consulting Architecture.</p><!--[cite: 1] -->
+        </div>
     </footer>
 
-    <!-- Mobile Menu Script Toggle -->
-    <script>
-        const btn = document.getElementById('menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-        // Close menu on link click
-        document.querySelectorAll('#mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => menu.classList.add('hidden'));
-        });
-    </script>
 </body>
-</html>
+</html>	
